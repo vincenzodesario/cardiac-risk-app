@@ -29,7 +29,7 @@
   window.extractData = function() {
 
     return FHIR.oauth2.ready().then(function(client) {
-
+      client.request("Patient");
       // Fetch the patient
       var patientQuery = client.patient.read();
 
