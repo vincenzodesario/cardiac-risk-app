@@ -29,7 +29,6 @@
   window.extractData = function() {
 
     return FHIR.oauth2.ready().then(function(client) {
-      client.request("Patient");
       // Fetch the patient
       var patientQuery = client.patient.read();
 
@@ -42,7 +41,8 @@
           'http://loinc.org|14647-2', // cholesterol
           'http://loinc.org|2093-3',  // cholesterol
           'http://loinc.org|2085-9',  // hdl
-          'http://loinc.org|8480-6'   // systolic
+          'http://loinc.org|8480-6',   // systolic
+          'http://loinc.org|72166-2'   // systolic
         ].join(","));
         return client.request("Observation?" + query, { pageLimit: 0 });
       })()
